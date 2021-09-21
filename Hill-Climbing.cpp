@@ -4,20 +4,21 @@
 using namespace std;
 
 class EightQueen{
-    public:
+    private:
         int *array;int current_conflict;
     public:
         EightQueen(int arr[]){array=arr;current_conflict=Conflict(array);}
         int Conflict(int []);
         void Solve();
         bool RandomNeighbor();
+        void Print();
 };
 
 int main(){
     int array[8]={3,5,1,6,7,2,0,4};
     EightQueen obj(array);
     obj.Solve();
-    cout<<obj.current_conflict<<endl;
+    obj.Print();
 }
 
 int EightQueen::Conflict(int array[]){
@@ -54,7 +55,12 @@ bool EightQueen::RandomNeighbor(){
 void EightQueen::Solve(){
     bool result=RandomNeighbor();
     while(result!=false){result=RandomNeighbor();}
+}
+
+void EightQueen::Print(){
+    cout<<"Current Conflict Is "<<current_conflict<<endl;
     for(int x=0;x<8;x++){
         cout<<array[x]<<"\t";
     }
+    cout<<endl;
 }
