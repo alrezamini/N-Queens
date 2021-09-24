@@ -41,13 +41,13 @@ void NQueen::RandomNeighbor(int temperature){
     int compute_conf=Conflict(copy_array);
     float minus=current_conflict-compute_conf;
     float rnd=(float)rand()/RAND_MAX;
-    float delta=minus/temperature;
+    float res=minus/temperature;
     if(minus>=0){
         for(int x=0;x<20;x++){array[x]=copy_array[x];}
         current_conflict=compute_conf;
     }
     else{
-        if(delta>=rnd&&delta<=1){
+        if(res>=rnd&&res<=1){
             for(int x=0;x<20;x++){array[x]=copy_array[x];}
             current_conflict=compute_conf;
         }
